@@ -23,7 +23,7 @@ class TestDevelopmentConfig(TestCase):
         self.assertTrue(app.config['DEBUG'] is True)
         self.assertFalse(current_app is None)
         self.assertTrue(
-            app.config['SQLALCHEMY_DATABASE_URI'] == 'sqlite:///' + os.path.join(basedir, 'flask_boilerplate_main.db')
+            app.config['SQLALCHEMY_DATABASE_URI'] == "postgresql://postgres:Sidhu@9693@localhost:5432/blogs"
         )
 
 
@@ -36,7 +36,7 @@ class TestTestingConfig(TestCase):
         self.assertFalse(app.config['SECRET_KEY'] is 'my_precious')
         self.assertTrue(app.config['DEBUG'])
         self.assertTrue(
-            app.config['SQLALCHEMY_DATABASE_URI'] == 'sqlite:///' + os.path.join(basedir, 'flask_boilerplate_test.db')
+            app.config['SQLALCHEMY_DATABASE_URI'] == "postgresql://postgres:Sidhu@9693@localhost:5432/blogs"
         )
 
 
