@@ -27,15 +27,15 @@ class blogsList(Resource):
         return save_new_blogs(data=data)
 
 
-@api.route('/<public_id>')
-@api.param('public_id', 'The blogs identifier')
+@api.route('/<id>')
+@api.param('id', 'The blogs identifier')
 @api.response(404, 'blogs not found.')
 class blogs(Resource):
     @api.doc('get a blogs')
     @api.marshal_with(_blogs)
-    def get(self, public_id):
+    def get(self, id):
         """get a blogs given its identifier"""
-        blogs = get_a_blogs(public_id)
+        blogs = get_a_blogs(id)
         if not blogs:
             api.abort(404)
         else:

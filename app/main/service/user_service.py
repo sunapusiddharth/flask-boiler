@@ -12,7 +12,7 @@ from ... import engine
 Session = sessionmaker(bind=engine)
 session = Session()
 
-@token_required
+
 def save_new_user(data):
     user = User.query.filter_by(email=data['email']).first()
     if not user:
