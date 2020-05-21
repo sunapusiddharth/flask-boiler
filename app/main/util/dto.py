@@ -16,6 +16,13 @@ class AuthDto:
         'email': fields.String(required=True, description='The email address'),
         'password': fields.String(required=True, description='The user password '),
     })
+
+class BlogsDto:
+    api = Namespace('blogs', description='blogs related operations')
+    blogs = api.model('blogs', {
+        'name': fields.String(required=True, description='name'),
+        'id': fields.String(description='blog Identifier')
+    })
 # The above code within dto.py does the following:
 # line 5 creates a new namespace for user related operations. Flask-RESTPlus provides a way to use almost the same pattern as Blueprint. The main idea is to split your app into reusable namespaces. A namespace module will contain models and resources declaration.
 # line 6 creates a new user dto through the model interface provided by the api namespace in line 5.

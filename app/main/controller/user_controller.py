@@ -14,7 +14,9 @@ class UserList(Resource):
     @api.marshal_list_with(_user, envelope='data')
     def get(self):
         """List all registered users"""
-        return get_all_users()
+        all_users = get_all_users()
+        print("All users=",all_users)
+        return all_users
 
     @api.response(201, 'User successfully created.')
     @api.doc('create a new user')
